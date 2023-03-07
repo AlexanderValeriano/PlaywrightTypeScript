@@ -1,0 +1,15 @@
+{
+  "name": "playwrighttypescript",
+  "version": "1.0.0",
+  "description": "automated software testing with playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexanderValeriano",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.31.2",
+    "prettier": "^2.8.4"
+  }
+}
