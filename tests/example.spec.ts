@@ -7,7 +7,7 @@ test.describe("My first test suite", () => {
     await expect(pageTitle).toContainText("Example Domain");
   });
 
-  test.only("Clicking in elements", async ({ page }) => {
+  test("Clicking in elements", async ({ page }) => {
     await page.goto("http://zero.webappsecurity.com/");
     await page.click("#signin_button");
     await page.click("text=Sign in");
@@ -32,7 +32,7 @@ test.describe("My first test suite", () => {
   // await page.click("//button");
 
   // npx playwright test --grep @tag
-  test.only("assertions @tag", async ({ page }) => {
+  test("assertions @tag", async ({ page }) => {
     await page.goto("https://example.com");
     await expect(page).toHaveURL("https://example.com");
     await expect(page).toHaveTitle("Example Domain");
@@ -47,7 +47,7 @@ test.describe("My first test suite", () => {
   });
 });
 
-test.only("assertions2", async ({ page }) => {
+test("assertions2", async ({ page }) => {
   await page.goto("https://example.com");
   await expect(page).toHaveURL("https://example.com");
   await expect(page).toHaveTitle("Example Domain");
