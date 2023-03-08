@@ -1,4 +1,5 @@
 import { test, expect, selectors } from "@playwright/test";
+import { assertTitle, LoadHomePage } from "./helpers";
 
 test.describe("My first test suite", () => {
   test("simple basic test", async ({ page }) => {
@@ -47,13 +48,22 @@ test.describe("My first test suite", () => {
   });
 });
 
-test.only("Screenshoots", async ({ page }) => {
-  await page.goto("https://example.com");
-  await page.screenshot({ path: "screenshot.png", fullPage: true });
+test.describe("hooks", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://example.com");
+  });
+
+  test("Screenshoots", async ({ page }) => {
+    await page.screenshot({ path: "screenshot.png", fullPage: true });
+  });
+
+  test("Single element screenshoots", async ({ page }) => {
+    const element = await page.$("h1");
+    await element?.screenshot({ path: "single_element_screenshot.png" });
+  });
 });
 
-test.only("Single element screenshoots", async ({ page }) => {
-  await page.goto("https://example.com");
-  const element = await page.$("h1");
-  await element.screenshot({ path: "single_element_screenshot.png" });
+test.only("Custom Helpers", async ({ page }) => {
+  await LoadHomePage(page);
+  await assertTitle(page);
 });
