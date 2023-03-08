@@ -27,3 +27,17 @@ test("Clicking in elements", async ({ page }) => {
 // await page.click("#username .first");
 // //Xpath
 // await page.click("//button");
+
+test.only("assertions", async ({ page }) => {
+  await page.goto("https://example.com");
+  await expect(page).toHaveURL("https://example.com");
+  await expect(page).toHaveTitle("Example Domain");
+
+  const element = await page.locator("h1");
+  await expect(element).toBeVisible();
+  await expect(element).toHaveText("Example Domain");
+  await expect(element).toHaveCount(1);
+
+  const notExistingElement = await page.locator("h5");
+  await expect(notExistingElement).not.toBeVisible();
+});
