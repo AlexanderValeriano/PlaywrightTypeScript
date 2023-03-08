@@ -8,8 +8,8 @@ const config: PlaywrightTestConfig = {
     viewport: { width: 1024, height: 790 },
     actionTimeout: 15 * 1000,
     ignoreHTTPSErrors: true,
-    video: "off",
-    screenshot: "off",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
   },
   projects: [
     {
