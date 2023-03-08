@@ -4,7 +4,9 @@
   "description": "automated software testing with playwright",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tests:chrome": "playwright test --config=playwright.config.ts --project=Chrome",
+    "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
+    "tests:safari": "playwright test --config=playwright.config.ts --project=Safari"
   },
   "author": "alexanderValeriano",
   "license": "ISC",
