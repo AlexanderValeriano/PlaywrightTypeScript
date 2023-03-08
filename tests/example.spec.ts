@@ -1,7 +1,7 @@
 import { test, expect, selectors } from "@playwright/test";
 
 test.describe("My first test suite", () => {
-  test.only("simple basic test", async ({ page }) => {
+  test("simple basic test", async ({ page }) => {
     await page.goto("https://example.com");
     const pageTitle = await page.locator("h1");
     await expect(pageTitle).toContainText("Example Domain");
@@ -47,16 +47,13 @@ test.describe("My first test suite", () => {
   });
 });
 
-test("assertions2", async ({ page }) => {
+test.only("Screenshoots", async ({ page }) => {
   await page.goto("https://example.com");
-  await expect(page).toHaveURL("https://example.com");
-  await expect(page).toHaveTitle("Example Domain");
+  await page.screenshot({ path: "screenshot.png", fullPage: true });
+});
 
-  const element = await page.locator("h1");
-  await expect(element).toBeVisible();
-  await expect(element).toHaveText("Example Domain");
-  await expect(element).toHaveCount(1);
-
-  const notExistingElement = await page.locator("h5");
-  await expect(notExistingElement).not.toBeVisible();
+test.only("Single element screenshoots", async ({ page }) => {
+  await page.goto("https://example.com");
+  const element = await page.$("h1");
+  await element.screenshot({ path: "single_element_screenshot.png" });
 });
