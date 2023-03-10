@@ -6,7 +6,8 @@
   "scripts": {
     "tests:chrome": "playwright test --config=playwright.config.ts --project=Chrome",
     "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
-    "tests:safari": "playwright test --config=playwright.config.ts --project=Safari"
+    "tests:safari": "playwright test --config=playwright.config.ts --project=Safari",
+    "tests:e2e": "playwright test --config=e2e.config.ts --project=Chrome"
   },
   "author": "alexanderValeriano",
   "license": "ISC",

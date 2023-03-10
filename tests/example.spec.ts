@@ -48,7 +48,7 @@ test.describe("My first test suite", () => {
   });
 });
 
-test.describe("hooks", () => {
+test.describe.parallel.only("hooks", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://example.com");
   });
@@ -63,7 +63,7 @@ test.describe("hooks", () => {
   });
 });
 
-test.only("Custom Helpers", async ({ page }) => {
+test("Custom Helpers", async ({ page }) => {
   await LoadHomePage(page);
   // await page.pause();
   await assertTitle(page);
